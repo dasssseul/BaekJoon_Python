@@ -54,3 +54,13 @@ for i in range(4294967296):
         print(i-1)
         break
 
+# 2753
+year = int(input())
+if year%4 == 0 and year%100 != 0:
+    print(1)
+elif year%100 == 0 and year%400 != 0:
+    print(0)
+elif year%400 == 0:
+    print(1)
+else:
+    print(0)
