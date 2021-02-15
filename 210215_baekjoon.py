@@ -28,7 +28,18 @@ if cute.count(1) > cute.count(0):
     print('Junhee is cute!')
 else:
     print('Junhee is not cute!')
-
+    
+# 10988_첫시도(왜틀렸을까..)
+word = list(input())
+check = 0
+for i in range(len(word)//2):
+    if word[i] != word[len(word)-1-i]:
+        check = 0
+        break
+    if word[i] == word[len(word)-1-i]:
+        check = 1
+print(check)
+    
 # 10988
 word = list(input())
 reversed_word = list(reversed(word))
