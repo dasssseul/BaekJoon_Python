@@ -31,7 +31,7 @@ else:
     
 # 10988_첫시도(왜틀렸을까..)
 word = list(input())
-check = 0
+check = 1 #check를 0으로 하면 틀린다...(다솔이 찾아냄)
 for i in range(len(word)//2):
     if word[i] != word[len(word)-1-i]:
         check = 0
