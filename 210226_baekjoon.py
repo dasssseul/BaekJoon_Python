@@ -1,4 +1,15 @@
 # 1408_내일 다시 풀께용
+h1, m1, s1 = map(int,input().split(':'))
+h2, m2, s2 = map(int, input().split(':'))
+now = h1*3600 + m1*60 + s1
+start = h2*3600 + m2*60 + s2
+rest = start - now
+if rest < 0 :
+    rest = rest + 24*3600
+rest_h = rest//3600
+rest_m = (rest%3600)//60
+rest_s = (rest%3600)%60
+print("%02d:%02d:%02d" % (rest_h,rest_m,rest_s))
 
 # 2741
 n = int(input())
