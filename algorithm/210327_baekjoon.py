@@ -21,3 +21,17 @@ if float(high) > int(high): #소수점이 생기는 경우는 다음날로 생�
     print(int(high)+1)
 else:
     print(int(high))
+    
+  
+#10250_ACM호텔
+for i in range(int(input())):
+    h, w, n = map(int, input().split())
+    if n%h == 0:
+        hn = h
+        wn = n//h
+    else:
+        hn = n%h
+        wn = n//h + 1
+    if len(str(wn)) == 1:
+        wn = '0' + str(wn)
+    print(str(hn)+str(wn))
