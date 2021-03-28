@@ -42,3 +42,5 @@ while sum(pita) != 0:
     else:
         print('wrong')
     pita = list(map(int, input().split()))
+    
+    
