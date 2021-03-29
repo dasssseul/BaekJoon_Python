@@ -94,3 +94,6 @@ for i in range(t):
                 gold.append([i,j])
                 minus.append(abs(j-i))
     print(gold[minus.index(min(minus))][0],gold[minus.index(min(minus))][1])
+    
+    
+    
