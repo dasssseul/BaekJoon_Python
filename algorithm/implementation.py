@@ -100,3 +100,5 @@ for _ in range(m):
 for i in ball:
     if i == 1:
         print(ball.index(i))
+
+
