@@ -85,3 +85,6 @@ while True:
         break
     i = (i+l)%n
     result += 1
+    
+    
+    
