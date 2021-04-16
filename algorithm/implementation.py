@@ -25,6 +25,7 @@ for i in range(n):
         print(0)
 
 
+
 # 2161번. 카드1
 
 n = int(input())
@@ -44,7 +45,8 @@ for i in delete:
 print(card[0])
 
 
-# 1592번. 영식이와 친구들_ㅠㅠ
+
+# 1592번. 영식이와 친구들_실패
 
 n, m, l = map(int, input().split())
 cnt = [0]*n
@@ -71,6 +73,7 @@ while True:
                 start -= (2*l+1)
                 cnt[start - 1] += 1
 
+                
 # 1592번. 영식이와 친구들_쉽게!
 
 n, m, l = map(int, input().split())
@@ -85,6 +88,7 @@ while True:
         break
     i = (i+l)%n
     result += 1
+    
     
 
 # 1547번. 공
