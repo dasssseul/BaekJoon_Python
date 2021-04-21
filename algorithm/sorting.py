@@ -2,6 +2,7 @@
 # 백준 단계별로 풀어보기
 # 정렬(sorting)
 
+
 # 2751번. 수 정렬하기2
 
 import sys
@@ -17,7 +18,9 @@ for i in sorting:
     print(i)
 
 
+    
 # 10989번. 수 정렬하기 3
+
 
 # 카운팅 정렬 이용_메모리 초과
 
@@ -55,6 +58,8 @@ for i in range(len(counting)):
             print(i)
 
 
+            
+# 2108번. 통계학
 
 # Counter 없이 구현_시간 초과
 
@@ -94,7 +99,6 @@ print(mode(number))
 print(difference)
 
 
-# 2108번. 통계학
 # Counter 클래스 사용
 
 from collections import Counter
@@ -141,6 +145,5 @@ print(mean(number))
 print(median(number))
 print(mode(number))
 print(diff(number))
-
 
 
