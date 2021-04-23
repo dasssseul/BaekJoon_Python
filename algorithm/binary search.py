@@ -53,3 +53,5 @@ for i in sanggen:
     print(result, end=" ")
 
 
+
+    
