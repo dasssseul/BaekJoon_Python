@@ -50,3 +50,20 @@ print(d[n])
 
 
 
+# 11053번. 가장 긴 증가하는 부분 수열(LIS)
+
+a = int(input())
+number = list(map(int, input().split()))
+
+dp = [1] * a
+
+for i in range(1, a):
+    for j in range(0, i):
+        if number[i] > number[j]:
+            dp[i] = max(dp[i], dp[j]+1)
+
+print(max(dp))
+
+
+
+
