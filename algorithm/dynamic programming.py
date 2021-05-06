@@ -84,4 +84,29 @@ print(max(semo[n-1]))
 
 
 
+# 2156번. 포도주 시식
+
+n = int(input())
+podo = [0]
+for _ in range(n):
+    podo.append(int(input()))
+
+dp = [0] * (n+1)
+dp[1] = podo[1]
+
+# 포도주가 1개일 경우 dp[2]를 계산할 수 없기 때문에
+# 종료 조건 필요
+if n == 1:
+    print(dp[1])
+    exit()
+
+dp[2] = dp[1] + podo[2]
+
+for i in range(3, n+1):
+    dp[i] = max(dp[i-2]+podo[i], dp[i-3]+podo[i-1]+podo[i], dp[i-1])
+
+print(max(dp))
+
+
+
 
