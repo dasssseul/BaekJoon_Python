@@ -55,3 +55,36 @@ for i in sanggen:
 
 
     
+# 2805번. 나무 자르기
+
+import sys
+
+n, m = map(int, sys.stdin.readline().split())
+tree = list(map(int, sys.stdin.readline().split()))
+
+# 이진 탐색을 위한 시작점, 끝점, 높이 설정
+start ,end, result = 0, max(tree), 0
+
+
+# 이진 탐색 수행(반복문 활용)
+while (start <= end):
+    total = 0
+    mid = (start+end)//2
+    for i in tree:
+        # 절단기 높이보다 큰 나무의 경우 잘린 높이 계산
+        if i > mid:
+            total += i-mid
+    # 나무의 양이 부족한 경우 왼쪽 부분 탐색
+    if total < m:
+        end = mid - 1
+    # 나무의 양이 충분한 경우 오른쪽 부분 탐색
+    else:
+        # 최대한 덜 잘랐을 때가 정답
+        result = mid
+        start = mid + 1
+
+print(result)
+
+
+
+
