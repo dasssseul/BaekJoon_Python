@@ -32,3 +32,30 @@ print(result)
 
 
 
+
+# 백준_그리디 알고리즘 복습
+
+# 1541번. 잃어버린 괄호
+
+# 아이디어 : 첫번재 마이너스가 나오기 전 값들은 더해주고 그 뒤에 값들은 모두 빼준다
+
+plmi = input().split('-')
+numbers = []
+
+for value in plmi:
+    plus_value = 0
+    # 플러스로 묶여있는 수들을 분리해 더해준다
+    plus = value.split('+')
+    for i in plus:
+        plus_value += int(i)
+    numbers.append(plus_value)
+
+# 마이너스가 나오기 전 첫번재 값
+n = numbers[0]
+
+for i in range(1, len(numbers)):
+    n -= numbers[i]
+
+print(n)
+
+
