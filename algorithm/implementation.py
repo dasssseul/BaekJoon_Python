@@ -25,7 +25,6 @@ for i in range(n):
         print(0)
 
 
-
 # 2161번. 카드1
 
 n = int(input())
@@ -46,7 +45,7 @@ print(card[0])
 
 
 
-# 1592번. 영식이와 친구들_실패
+# 1592번. 영식이와 친구들_ㅠㅠ
 
 n, m, l = map(int, input().split())
 cnt = [0]*n
@@ -73,8 +72,7 @@ while True:
                 start -= (2*l+1)
                 cnt[start - 1] += 1
 
-                
-# 1592번. 영식이와 친구들_쉽게!
+# 1592번. 영식이와 친구들
 
 n, m, l = map(int, input().split())
 cnt = [0]*n
@@ -88,7 +86,6 @@ while True:
         break
     i = (i+l)%n
     result += 1
-    
     
 
 # 1547번. 공
@@ -104,5 +101,26 @@ for _ in range(m):
 for i in ball:
     if i == 1:
         print(ball.index(i))
+
+
+
+# 백준_구현 복습
+
+# 7568번. 덩치
+
+n = int(input())
+people = []
+cnt = [1] * n
+
+for i in range(n):
+    w, h = map(int, input().split())
+    people.append((w, h))
+
+for i in range(n):
+    for j in range(n):
+        if people[i][0] < people[j][0] and people[i][1] < people[j][1]:
+            cnt[i] += 1
+    print(cnt[i], end =" ") 
+
 
 
