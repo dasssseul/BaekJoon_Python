@@ -25,6 +25,7 @@ for i in range(n):
         print(0)
 
 
+        
 # 2161번. 카드1
 
 n = int(input())
@@ -72,6 +73,7 @@ while True:
                 start -= (2*l+1)
                 cnt[start - 1] += 1
 
+                
 # 1592번. 영식이와 친구들
 
 n, m, l = map(int, input().split())
@@ -88,6 +90,7 @@ while True:
     result += 1
     
 
+    
 # 1547번. 공
 
 m = int(input())
@@ -105,6 +108,7 @@ for i in ball:
 
 
 # 백준_구현 복습
+
 
 # 7568번. 덩치
 
