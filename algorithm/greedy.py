@@ -60,5 +60,32 @@ print(n)
 
 
 
+# 1931번. 회의실 배정
+
+n = int(input())
+time = []
+
+# 회의시간 입력 받기
+for i in range(n):
+    a, b = map(int, input().split())
+    time.append((a, b))
+
+# 시작시간을 기준으로 오름차순 정렬
+time_start = sorted(time, key = lambda x : x[0])
+# 시작시간 기준으로 정렬된 리스트를 종료시간 기준으로 정렬
+time_end = sorted(time_start, key = lambda x : x[1])
+
+end = 0
+cnt = 0
+for i in time_end:
+    if i[0] >= end:
+        end = i[1]
+        cnt += 1
+
+print(cnt)
+
+
+
+
 
 
