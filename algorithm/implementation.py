@@ -126,6 +126,40 @@ for i in range(n):
             cnt[i] += 1
     print(cnt[i], end =" ") 
 
+    
+    
+# 1966번. 프린터 큐
+
+for _ in range(int(input())):
+    n, m = map(int,input().split())
+    priority = list(map(int, input().split()))
+    # 인덱스 확인을 위한 result 배열 0으로 초기화
+    result = [0] * n
+    # 원하는 문서의 결과만 1로 설정
+    result[m] = 1
+    # 순서를 구하기위한 cnt 초기화
+    cnt = 0
+
+    while True:
+        # 첫번째 원소의 중요도가 제일 크다면
+        if priority[0] == max(priority):
+            # 출력 횟수 +1
+            cnt += 1
+            # 원하는 문서의 위치가 출력된 것이라면 횟수 출력
+            if result[0] == 1:
+                print(cnt)
+                break
+            else:
+                # 원하는 문서의 위치가 아니라면 첫번째 원소, 위치 제거
+                priority.pop(0)
+                result.pop(0)
+        # 첫번재 원소의 중요도가 제일 큰 것이 아니라면
+        else:
+            # 해당 원소 제거 및 제일 오른쪽에 붙여주기 
+            priority.append(priority.pop(0))
+            result.append(result.pop(0))
+
+
 
 
 
