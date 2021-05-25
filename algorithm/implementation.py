@@ -159,8 +159,26 @@ for _ in range(int(input())):
             priority.append(priority.pop(0))
             result.append(result.pop(0))
 
+            
+
+            
+# 10813번. 공 바꾸기
+
+n, m = map(int, input().split())
+
+balls = [0] * (n+1)
+for i in range(n+1):
+    balls[i] = i
+
+for j in range(m):
+    a, b = map(int,input().split())
+    balls[a], balls[b] = balls[b], balls[a]
+
+for k in range(1, n+1):
+    print(balls[k], end=" ")
 
 
+    
 
 
     
