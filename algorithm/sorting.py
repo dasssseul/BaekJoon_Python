@@ -165,3 +165,59 @@ for i in range(n):
 print(result)
 
 
+
+# 1181번. 단어 정렬
+
+# 첫번재 시도_시간초과
+
+import string
+lower = list(string.ascii_lowercase)
+n = int(input())
+words = []
+
+for i in range(n):
+    k = str(input())
+    if k not in words:
+        words.append(k)
+    else:
+        continue
+
+words.sort(key=len)
+
+for i in range(len(words)):
+    for j in range(i+1, len(words)):
+        if len(words[i]) < len(words[j]):
+            continue
+        else:
+            for x in range(len(words[i])):
+                if lower.index(words[i][x]) < lower.index(words[j][x]):
+                    break
+                elif lower.index(words[i][x]) == lower.index(words[j][x]):
+                    continue
+                else:
+                    words[i], words[j] = words[j], words[i]
+
+for word in words:
+    print(word)
+
+
+ # 두번째 시도_sort lambda 이용
+
+n = int(input())
+words = []
+
+for i in range(n):
+    word = str(input())
+    word_len = len(word)
+    words.append((word_len, word))
+
+words = list(set(words))
+
+words.sort(key = lambda words: (words[0], words[1]))
+
+for i in words:
+    print(i[1])
+    
+       
+        
+
