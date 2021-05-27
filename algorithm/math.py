@@ -14,3 +14,4 @@ for i in range(n):
 result = combinations(n_list, k)
 print(len(list(result)))
 
+
