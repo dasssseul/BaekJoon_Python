@@ -207,17 +207,21 @@ n = int(input())
 words = []
 
 for i in range(n):
+    # 입력받은 단어의 길이와 단어를 한 세트로 묶어주기
     word = str(input())
     word_len = len(word)
     words.append((word_len, word))
 
+# 단어 중복 제거
 words = list(set(words))
 
+# 길이 우선 정렬 후, 알파벳 사전 순 정렬
 words.sort(key = lambda words: (words[0], words[1]))
 
+# 단어만 출력
 for i in words:
     print(i[1])
     
-       
-        
-
+    
+    
+    
