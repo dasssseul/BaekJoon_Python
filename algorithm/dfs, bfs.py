@@ -1,5 +1,6 @@
 
-# 백준
+# 백준_dfs, bfs
+
 # 1260번. DFS와 BFS
 
 from collections import deque
@@ -37,7 +38,6 @@ bfs(v)
 
 
 
-# 백준
 
 # 4963번. 섬의 개수
 
@@ -114,7 +114,6 @@ for i in danji_num:
 
 
 
-
 # 16173번. 점프왕 쩰리
 
 from collections import deque
@@ -152,4 +151,6 @@ else:
     print('Hing')
 
 
+    
+    
     
