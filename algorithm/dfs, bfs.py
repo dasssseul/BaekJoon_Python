@@ -1,6 +1,5 @@
 
-# 백준_dfs, bfs
-
+# 백준
 # 1260번. DFS와 BFS
 
 from collections import deque
@@ -38,6 +37,7 @@ bfs(v)
 
 
 
+# 백준
 
 # 4963번. 섬의 개수
 
@@ -114,6 +114,7 @@ for i in danji_num:
 
 
 
+
 # 16173번. 점프왕 쩰리
 
 from collections import deque
@@ -121,23 +122,31 @@ from collections import deque
 n = int(input())
 jelly = []
 
+# 이동할 리스트의 맵 정보 입력받기
 for i in range(n):
     jelly.append(list(map(int, input().split())))
 
+# 오른쪽과 아래로 이동할 방향 정의
 dx = [1, 0]
 dy = [0, 1]
 
+# BFS 소스코드 구현
 def bfs(x, y):
+    # 큐 구현을 위해 deque 라이브러리 사용
     queue = deque()
     visited = [[0]*n for i in range(n)]
     queue.append((x, y))
+    # queue가 빌 때까지 반복
     while queue:
         x, y = queue.popleft()
+        # 가장 아래칸에 도달한 경우 True 반환 후 종료
         if jelly[x][y] == -1:
             return True
+        # 오른쪽과 아래 방향으로의 위치 확인
         for i in range(2):
             nx = x + dx[i]*jelly[x][y]
             ny = y + dy[i]*jelly[x][y]
+            # 맵을 벗어나지 않고, 방문한 적이 없을 경우 
             if 0 <= nx < n and 0 <= ny < n and visited[nx][ny] == 0:
                 queue.append((nx, ny))
                 visited[nx][ny] = 1
@@ -151,6 +160,45 @@ else:
     print('Hing')
 
 
-    
-    
+
+
+
+# 16174번. 점프왕 쩰리(Large)
+
+from collections import deque
+
+n = int(input())
+jelly = []
+for i in range(n):
+    jelly.append(list(map(int, input().split())))
+
+dx = [1, 0]
+dy = [0, 1]
+
+def bfs(x, y):
+    queue = deque()
+    visited = [[0]*n for i in range(n)]
+    visited[x][y] = 1
+    queue.append((x, y))
+    while queue:
+        x, y = queue.popleft()
+        if jelly[x][y] == -1:
+            return True
+        for i in range(2):
+            nx = x + dx[i]*jelly[x][y]
+            ny = y + dy[i]*jelly[x][y]
+            if 0 <= nx < n and 0 <= ny < n and visited[nx][ny] == 0:
+                queue.append((nx, ny))
+                visited[nx][ny] = 1
+    return False
+
+if bfs(0,0):
+    print('HaruHaru')
+else:
+    print('Hing')
+
+
+
+
+
     
