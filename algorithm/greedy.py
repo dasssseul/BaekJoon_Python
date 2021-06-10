@@ -86,6 +86,59 @@ print(cnt)
 
 
 
+# 1439번. 문자열 뒤집기
 
+# 문자열 입력받기
+s = input()
+
+# 전부 0으로 바꾸는 경우
+count0 = 0
+
+# 전부 1로 바꾸는 경우 
+count1 = 0
+
+# 첫 번째 원소에 대해서 처리
+if s[0] == '0':
+    count1 += 1
+else:
+    count0 += 1
+
+# 두 번째 원소부터 모든 원소를 확인하면서
+for i in range(len(s)-1):
+    if s[i] != s[i+1]:
+        # 다음 수가 0일 경우 1로 바꿔줘야하기 때문에 count1 + 1
+        if s[i+1] == '0':
+            count1 += 1
+        # 다음 수가 1일 경우 0으로 바꿔줘야하기 때문에 count0 + 1
+        else:
+            count0 += 1
+
+# 뒤집는 횟수의 최솟값 출력
+print(min(count0, count1))
+
+
+
+# 2437번. 저울
+
+# 추의 개수 입력 받기
+n = int(input())
+
+# 추의 단위 입력 받기
+coin = list(map(int, input().split()))
+
+# 추의 단위 오름차순 정렬
+coin.sort()
+
+# 더해서 만들 수 있는지 확인할 타켓 설정
+target = 1
+
+
+for i in coin:
+    # 만들 수 없는 무게를 찾았을 때 반복 종료
+    if target < i:
+        break
+    target += i
+
+print(target)
 
 
