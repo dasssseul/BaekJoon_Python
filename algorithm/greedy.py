@@ -3,7 +3,7 @@
 # greedy 알고리즘
 
 
-# 11399번_ATM
+# 11399번. ATM
 
 n = int(input())
 p = list(map(int, input().split()))
@@ -13,7 +13,7 @@ for i in range(1,n):
 print(sum(p))
 
 
-# 13305번_주유소
+# 13305번. 주유소
 
 n = int(input())
 dist = list(map(int, input().split()))
