@@ -3,7 +3,7 @@
 # greedy 알고리즘
 
 
-# 11399번. ATM
+# 11399번_ATM
 
 n = int(input())
 p = list(map(int, input().split()))
@@ -13,7 +13,7 @@ for i in range(1,n):
 print(sum(p))
 
 
-# 13305번. 주유소
+# 13305번_주유소
 
 n = int(input())
 dist = list(map(int, input().split()))
@@ -140,5 +140,37 @@ for i in coin:
     target += i
 
 print(target)
+
+
+
+# 1946번. 신입사원
+
+import sys
+
+for i in range(int(sys.stdin.readline())):
+    # 지원자의 수 입력받기
+    n = int(input())
+    # 지원자의 서류, 면접 순위를 입력받을 리스트 초기화
+    score = []
+    # 선발되지 못하는 지원자의 수 
+    result = 0
+    for j in range(n):
+        # 서류, 면접 순위 입력 받기
+        one, two = map(int, sys.stdin.readline().split())
+        score.append((one, two))
+    # 서류 순위를 기준으로 오름차순 정렬
+    score.sort()
+    # 서류 순위 1위인 지원자의 면접 순위를 최솟값으로 할당
+    min_score = score[0][1]
+    for x in range(1, n):
+        # 면접 순위가 현재 지원자보다 낮다면
+        if score[x][1] > min_score:
+            # 서류, 면접 둘다 낮으므로 +1
+            result += 1
+        else:
+            # 면접 순위가 현재 지원자보다 높다면 순위 업데이트
+            min_score = score[x][1]
+    # 총 지원자 수에서 선발되지 못하는 지원자의 수 빼고 출력
+    print(n - result)
 
 
