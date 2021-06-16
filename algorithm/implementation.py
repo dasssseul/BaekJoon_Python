@@ -178,7 +178,27 @@ for k in range(1, n+1):
     print(balls[k], end=" ")
 
 
-    
+
+# 18406번. 럭키 스트레이트
+
+# 점수 입력 받기
+n = int(input())
+# 입력받은 점수를 문자열로 변환
+n = str(n)
+
+score = []
+# 문자 하나씩 정수형으로 변환해 score에 삽입
+for i in n:
+    score.append(int(i))
+
+# 중간 인덱스 값 구해주기
+half = int(len(n)/2)
+
+# 슬라이싱을 이용해 왼쪽 절반의 합과 오른쪽 절반의 합 비교
+if sum(score[:half]) == sum(score[half:]):
+    print("LUCKY")
+else:
+    print("READY")
 
 
     
