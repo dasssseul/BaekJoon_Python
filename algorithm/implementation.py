@@ -201,4 +201,21 @@ else:
     print("READY")
 
 
+
+# 5597번. 과제 안 내신 분..?
+
+numbers = []
+thirty = [i for i in range(1, 31)]
+
+for _ in range(28):
+    numbers.append(int(input()))
+
+numbers.sort()
+
+for i in thirty:
+    if i not in numbers:
+        print(i)
+
+        
+
     
