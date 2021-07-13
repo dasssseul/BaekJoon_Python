@@ -216,6 +216,95 @@ for i in thirty:
     if i not in numbers:
         print(i)
 
-        
+
+# 3190번. 뱀
+
+# 보드의 크기 n
+n = int(input())
+# 사과의 개수 k
+k = int(input())
+# n x n 배열 초기화
+board = [[0] * n for _ in range(n)]
+# 뱀의 현재 위치
+nx, ny = 0, 0
+board[nx][ny] = 2
+# 사과의 위치 입력받기
+for i in range(k):
+    a, b = map(int, input().split())
+    board[a-1][b-1] = 1
+
+# 이동 방향 
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0, -1]
+
+# 초기 direction은 동쪽
+direction = 1
+
+# 방향 변환 함수
+def turnleft():
+    global direction
+    direction -= 1
+    if direction == -1:
+        direction = 3
+
+def turnright():
+    global direction 
+    direction += 1
+    if direction == 4:
+        direction = 0
+
+# 방향 변환 횟수 입력 받기 
+l = int(input())
+l_info = [0] * 10001
+
+# 방향 정보 입력 받기
+for i in range(l):
+    x, c = map(str, input().split())
+    l_info[int(x)] = c
+
+# 시간 초기화
+time = 0
+
+# 뱀의 머리와 꼬리의 좌표 삽입
+q = [[0,0]]
+
+while True:
+    # 방향 변환 정보에 따른 회전
+    if l_info[time] == 'L':
+        turnleft()
+    elif l_info[time] == 'D':
+        turnright()
+    # 뱀의 머리 좌표 업데이트 
+    nx += dx[direction]
+    ny += dy[direction]
+    # 시간 증가
+    time += 1
+    if (0 <= nx < n) and (0 <= ny < n):
+        # 사과가 있다면
+        if board[nx][ny] == 1:
+            # 머리 좌표만 삽입, 이전의 머리는 꼬리가 됨
+            q.append([nx, ny])
+            # 뱀의 위치 좌표 업데이트
+            board[nx][ny] = 2
+        # 사과가 없다면
+        elif board[nx][ny] == 0:
+            # 머리 좌표 삽입
+            q.append([nx, ny])
+            # 뱀의 위치 업데이트
+            board[nx][ny] = 2
+            # 맨 왼쪽 꼬리 좌표 삭제
+            del_x, del_y = q.pop(0)
+            # 뱀이 없으므로 위치 좌표 업데이트
+            board[del_x][del_y] = 0
+        # 자기자신과 부딪히면 종료
+        elif board[nx][ny] == 2:
+             break
+    # 벽과 부딪히면 종료 
+    else:
+        break
+# 시간 출력
+print(time)
+
+
 
     
