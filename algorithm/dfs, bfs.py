@@ -197,7 +197,60 @@ if bfs(0,0):
 else:
     print('Hing')
 
-    
+
+
+# 2178번. 미로 탐색
+
+from collections import deque
+
+# 정수 n, m 입력 받기
+n, m = map(int, input().split())
+
+# 미로 입력 받기
+array = []
+for i in range(n):
+    x = list(map(int, list(input())))
+    array.append(x)
+
+
+# 현재 위치를 q에 저장
+q = deque()
+q.append((0,0))
+
+# 방문 처리를 위한 array
+visited = [[False] * m for i in range(n)]
+visited[0][0] = True
+
+# 방향 설정(북, 동, 남, 서)
+dx = [0, 1, 0, -1]
+dy = [-1, 0, 1, 0]
+
+# 칸 수를 세기 위한 배열 초기화
+dist = [[0]*m for i in range(n)]
+# 출발지 칸 수 = 1
+dist[0][0] = 1
+
+while q:
+    # q에서 왼쪽부터 꺼내서 x, y
+    x, y = q.popleft()
+    # 네 방향 확인
+    for i in range(4):
+        nx = x + dx[i]
+        ny = y + dy[i]
+        # nx, ny가 미로 안에 있고
+        if (0 <= nx < n) and (0 <= ny < m):
+            # 방문한 적이 없고, 이동 가능 칸 1이라면
+            if (visited[nx][ny] == False) and (array[nx][ny] == 1):
+                # 방문 처리
+                visited[nx][ny] = True
+                # 칸 수 업데이트
+                dist[nx][ny] = dist[x][y] + 1
+                # q에 위치 삽입
+                q.append((nx, ny))
+# 오른쪽 맨 아래 칸의 칸 수 출력
+print(dist[n-1][m-1])
+
+
 
 
 
